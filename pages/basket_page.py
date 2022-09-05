@@ -1,20 +1,23 @@
 from .base_page import BasePage
 from .locators import BasePageLocators
 from selenium.webdriver.common.by import By
+import time
 
 class BasketPage(BasePage):
-
-    def go_to_basket(self):
-        #self.should_not_be_success_message()        # test_guest_cant_see_success_message до заказа
-        #basket_btn = self.browser.find_element(*BasePageLocators.BASKET)
-		#basket_btn.click()
+    def __init__(self, browser, url):
+        self.browser = browser
+        self.url = url
+        self.open()
+        self.go_to_basket()
+        time.sleep(1)
         self.should_not_be_order()
 		
     def should_not_be_order(self):
         #print("Успешно заказано" + self.browser.find_element(*BasePageLocators.SUCCESS_MESSAGE).text)
-        assert self.is_not_element_present(*ProductPageLocators.EMPTY_BASKET), \
-            "Success message is presented, but should not be"
-    
+        assert self.is_not_element_present(*BasePageLocators.BOOK_IN_BASKET), \
+            "Корзина не пуста, как ожидалось"
+        assert self.is_element_present(*BasePageLocators.EMPTY_BASKET), \
+            "Корзина не пуста, как ожидалось"
     
     
         

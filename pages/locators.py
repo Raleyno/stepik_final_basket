@@ -11,5 +11,6 @@ class LoginPageLocators():
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
-    BASKET = (By.CSS_SELECTOR, ".btn-group a[href='/ru/basket/']")
+    BOOK_IN_BASKET = (By.CSS_SELECTOR, "div.alertinner strong")         # заказанная книга в корзине
+    BASKET = (By.CSS_SELECTOR, "a[href$='/basket/'")
     EMPTY_BASKET = (By.CSS_SELECTOR, "div #content_inner")
