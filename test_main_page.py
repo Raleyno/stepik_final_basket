@@ -1,6 +1,6 @@
 ﻿from pages.login_page import LoginPage
 from pages.basket_page import BasketPage
-from pages.test_product_page import ProductPage
+from test_product_page import ProductPage
 from selenium.webdriver.common.by import By
 import pytest
 
@@ -8,7 +8,7 @@ import pytest
 class TestLoginFromMainPage():
     def test_guest_can_go_to_login_page(self, browser):
         link = "http://selenium1py.pythonanywhere.com"
-        page = LoginPage(browser, link)   # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес 
+        page = LoginPage(browser, link)   # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url  
         page.open()                       # открываем страницу
         page.go_to_login_page()
         login_page = LoginPage(browser, browser.current_url)
@@ -30,9 +30,4 @@ def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     page = BasketPage(browser, url)
     print("test_guest_cant_see_product_in_basket_opened_from_main_page PASSED")
 
-# Запуск 3-х тестов со страницы product_page:
-def test_guest_can_go_to_login_page_from_product_page(browser):
-    url = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95"
-    page = ProductPage(browser, url)
-        
 	# pytest -s -v test_main_page.py 	- запуск
