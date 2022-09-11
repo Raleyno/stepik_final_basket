@@ -40,11 +40,11 @@ class TestProductPage():
         page.should_not_be_order()
         print("test_guest_cant_see_product_in_basket_opened_from_product_page PASSED")
         
-# class TestUserAddToBasketFromProductPage():
-    # def test_user_cant_see_success_message(browser)
-        # link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
-        # page = ProductPage(browser, link)
-        # page.open()
-        # page.should_not_be_success_message()
+class TestUserAddToBasketFromProductPage():
+    def test_user_cant_see_success_message(browser)
+        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
+        page = ProductPage(browser, link)
+        page.open()
+        page.should_not_be_success_message()
         	
 	# pytest -s -v test_main_page.py 	- запуск этого теста вызывается одноименной функцие из test_main_page.py 
