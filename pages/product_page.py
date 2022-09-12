@@ -2,6 +2,7 @@ from .base_page import BasePage
 from .locators import ProductPageLocators
 from selenium.webdriver.common.by import By
 import time
+import pytest
 
 class ProductPage(BasePage):
 
@@ -27,7 +28,8 @@ class ProductPage(BasePage):
         time.sleep(3)
         assert self.book == self.book_in_basket, "В корзине нет добавленного товара"
         assert self.price == self.price_in_basket, "Цена товара не совпадает с ценой добавленного товара"
-        
+    
+    @pytest.mark.xfail 
     def should_not_be_success_message(self):
         #print("Успешно заказано" + self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE).text)
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
