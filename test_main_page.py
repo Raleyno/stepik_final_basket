@@ -21,8 +21,6 @@ class TestLoginFromMainPage():
         page.open()
         page.should_be_login_link()
         print("test_guest_should_see_login_link PASSED")    
-        # pytest -v --tb=line --language=en test_main_page.py 	- запуск
-    
     # pytest -s -v -m login_guest   - запуск только этих 2 тестов с маркировкой- @pytest.mark.login_guest
     
 def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
