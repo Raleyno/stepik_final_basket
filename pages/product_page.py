@@ -4,7 +4,6 @@ from selenium.webdriver.common.by import By
 import time
 import pytest
 
-@pytest.mark.xfail
 class ProductPage(BasePage):
     def add_to_basket(self):
         #self.should_not_be_success_message()        # test_guest_cant_see_success_message до заказа
